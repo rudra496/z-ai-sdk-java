@@ -136,7 +136,7 @@ ChatService chatService = client.chat();
 
 // Build a request
 ChatCompletionCreateParams request = ChatCompletionCreateParams.builder()
-    .model("glm-4")
+    .model("glm-5.1")
     .messages(Collections.singletonList(
         ChatMessage.builder().role(ChatMessage.Role.USER).content("Hello!").build()
     ))

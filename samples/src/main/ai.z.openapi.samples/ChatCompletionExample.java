@@ -25,7 +25,7 @@ public class ChatCompletionExample {
 
         // Create chat request
         ChatCompletionCreateParams request = ChatCompletionCreateParams.builder()
-            .model("glm-5")
+            .model("glm-5.1")
             .messages(Arrays.asList(
                 ChatMessage.builder()
                     .role(ChatMessageRole.USER.value())
