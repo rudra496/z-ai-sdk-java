@@ -25,7 +25,7 @@ public class GLMVisionExample {
 
         // Create chat request
         ChatCompletionCreateParams streamRequest = ChatCompletionCreateParams.builder()
-            .model("glm-4.6v")
+            .model("glm-5v-turbo")
             .messages(Arrays.asList(
                 ChatMessage.builder()
                     .role(ChatMessageRole.USER.value())

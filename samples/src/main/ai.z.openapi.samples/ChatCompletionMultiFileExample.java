@@ -14,7 +14,7 @@ public class ChatCompletionMultiFileExample {
         ZaiClient client = ZaiClient.builder().ofZAI().build();
 
         ChatCompletionCreateParams request = ChatCompletionCreateParams.builder()
-            .model("glm-4.6v")
+            .model("glm-5v-turbo")
             .messages(Arrays.asList(
                 ChatMessage.builder()
                     .role(ChatMessageRole.USER.value())
