@@ -128,8 +128,8 @@ public class ChatCompletionCreateParams extends CommonRequest implements ClientR
 	private Boolean watermarkEnabled;
 
 	/**
-	 * Reasoning effort level, supported values: none, minimal, low, medium, high, xhigh, max.
-	 * Defaults to max when not specified. Effective for glm-5.2 and above models.
+	 * Reasoning effort level, supported values: none, minimal, low, medium, high, xhigh,
+	 * max. Defaults to max when not specified. Effective for glm-5.2 and above models.
 	 */
 	@JsonProperty("reasoning_effort")
 	private String reasoningEffort;
