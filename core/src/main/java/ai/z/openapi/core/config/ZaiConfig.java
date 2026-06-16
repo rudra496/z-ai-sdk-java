@@ -2,7 +2,6 @@ package ai.z.openapi.core.config;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.Map;
@@ -17,7 +16,6 @@ import static ai.z.openapi.core.Constants.Z_AI_BASE_URL;
  */
 @Setter
 @Builder
-@NoArgsConstructor
 @AllArgsConstructor
 public class ZaiConfig {
 
@@ -129,11 +127,29 @@ public class ZaiConfig {
 	private String source_channel = "java-sdk";
 
 	/**
+	 * No-arg constructor that mirrors all {@link Builder.Default} field values. Lombok's
+	 * {@code @NoArgsConstructor} does not apply {@code @Builder.Default} values, so we
+	 * write this constructor explicitly to ensure every field starts with the same
+	 * defaults as the builder.
+	 */
+	public ZaiConfig() {
+		this.expireMillis = 30 * 60 * 1000;
+		this.alg = "HS256";
+		this.disableTokenCache = true;
+		this.connectionPoolMaxIdleConnections = 5;
+		this.connectionPoolKeepAliveDuration = 10;
+		this.connectionPoolTimeUnit = TimeUnit.SECONDS;
+		this.timeOutTimeUnit = TimeUnit.SECONDS;
+		this.source_channel = "java-sdk";
+	}
+
+	/**
 	 * Constructor with combined API secret key.
 	 * @param apiKey combined secret key in format {apiKey}.{apiSecret}
 	 * @throws RuntimeException if apiSecretKey format is invalid
 	 */
 	public ZaiConfig(String apiKey) {
+		this();
 		this.apiKey = apiKey;
 		String[] arrStr = apiKey.split("\\.");
 		if (arrStr.length != 2) {
@@ -251,7 +267,7 @@ public class ZaiConfig {
 	 * variable fallback.
 	 */
 	public long getConnectionPoolKeepAliveDuration() {
-		if (connectionPoolKeepAliveDuration != 1) { // If not default value
+		if (connectionPoolKeepAliveDuration != 10) { // If not default value
 			return connectionPoolKeepAliveDuration;
 		}
 		String propValue = System.getProperty(ENV_CONNECTION_POOL_KEEP_ALIVE);

@@ -30,7 +30,7 @@ Z.ai AI 平台官方 Java SDK，提供统一接口访问强大的AI能力，包�
 <dependency>
     <groupId>ai.z.openapi</groupId>
     <artifactId>zai-sdk</artifactId>
-    <version>0.3.3</version>
+    <version>0.3.5</version>
 </dependency>
 ```
 
@@ -39,7 +39,7 @@ Z.ai AI 平台官方 Java SDK，提供统一接口访问强大的AI能力，包�
 
 ```groovy
 dependencies {
-    implementation 'ai.z.openapi:zai-sdk:0.3.3'
+    implementation 'ai.z.openapi:zai-sdk:0.3.5'
 }
 ```
 
@@ -125,7 +125,7 @@ ZaiClient client = ZaiClient.builder()
 
 // 创建对话请求
 ChatCompletionCreateParams request = ChatCompletionCreateParams.builder()
-    .model("glm-5.1")
+    .model("glm-5.2")
     .messages(Arrays.asList(
         ChatMessage.builder()
             .role(ChatMessageRole.USER.value())
@@ -153,7 +153,7 @@ if (response.isSuccess()) {
 ```java
 // 创建流式请求
 ChatCompletionCreateParams streamRequest = ChatCompletionCreateParams.builder()
-    .model("glm-5.1")
+    .model("glm-5.2")
     .messages(Arrays.asList(
         ChatMessage.builder()
             .role(ChatMessageRole.USER.value())
@@ -285,7 +285,7 @@ public class AIController {
     @PostMapping("/chat")
     public ResponseEntity<String> chat(@RequestBody ChatRequest request) {
         ChatCompletionCreateParams params = ChatCompletionCreateParams.builder()
-            .model("glm-5.1")
+            .model("glm-5.2")
             .messages(Arrays.asList(
                 ChatMessage.builder()
                     .role(ChatMessageRole.USER.value())

@@ -35,6 +35,11 @@ public final class Constants {
 	// =============================================================================
 
 	/**
+	 * GLM-5.2 model code
+	 */
+	public static final String ModelGLM5_2 = "glm-5.2";
+
+	/**
 	 * GLM-5.1 model code
 	 */
 	public static final String ModelGLM5_1 = "glm-5.1";
