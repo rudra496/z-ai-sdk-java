@@ -177,7 +177,8 @@ public class ZaiConfig {
 		if (baseUrl != null) {
 			return baseUrl;
 		}
-		return System.getProperty(ENV_BASE_URL);
+		String propValue = System.getProperty(ENV_BASE_URL);
+		return propValue != null ? propValue : System.getenv(ENV_BASE_URL);
 	}
 
 	/**

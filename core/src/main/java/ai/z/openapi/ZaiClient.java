@@ -1,7 +1,6 @@
 package ai.z.openapi;
 
 import ai.z.openapi.core.config.ZaiConfig;
-import ai.z.openapi.utils.StringUtils;
 
 import static ai.z.openapi.core.Constants.ZHIPU_AI_BASE_URL;
 import static ai.z.openapi.core.Constants.Z_AI_BASE_URL;
@@ -41,7 +40,7 @@ public class ZaiClient extends AbstractAiClient {
 	 * @throws IllegalArgumentException if config is null or invalid
 	 */
 	public ZaiClient(ZaiConfig config) {
-		super(config, StringUtils.isEmpty(config.getBaseUrl()) ? Z_AI_BASE_URL : config.getBaseUrl());
+		super(config, config.getBaseUrl() != null ? config.getBaseUrl() : Z_AI_BASE_URL);
 	}
 
 	// ==================== Builder Pattern Implementation ====================

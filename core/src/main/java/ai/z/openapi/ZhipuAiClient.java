@@ -1,7 +1,6 @@
 package ai.z.openapi;
 
 import ai.z.openapi.core.config.ZaiConfig;
-import ai.z.openapi.utils.StringUtils;
 
 import static ai.z.openapi.core.Constants.ZHIPU_AI_BASE_URL;
 import static ai.z.openapi.core.Constants.Z_AI_BASE_URL;
@@ -41,30 +40,7 @@ public class ZhipuAiClient extends AbstractAiClient {
 	 * @throws IllegalArgumentException if config is null or invalid
 	 */
 	public ZhipuAiClient(ZaiConfig config) {
-		super(StringUtils.isEmpty(config.getBaseUrl()) ? createConfigWithDefaultUrl(config) : config,
-				StringUtils.isEmpty(config.getBaseUrl()) ? ZHIPU_AI_BASE_URL : config.getBaseUrl());
-	}
-
-	/**
-	 * Creates a new config with ZHIPU AI base URL as default
-	 * @param originalConfig the original configuration
-	 * @return a new configuration with ZHIPU AI base URL set
-	 */
-	private static ZaiConfig createConfigWithDefaultUrl(ZaiConfig originalConfig) {
-		ZaiConfig newConfig = new ZaiConfig();
-		newConfig.setApiKey(originalConfig.getApiKey());
-		newConfig.setBaseUrl(ZHIPU_AI_BASE_URL);
-		newConfig.setDisableTokenCache(originalConfig.isDisableTokenCache());
-		newConfig.setConnectionPoolMaxIdleConnections(originalConfig.getConnectionPoolMaxIdleConnections());
-		newConfig.setConnectionPoolKeepAliveDuration(originalConfig.getConnectionPoolKeepAliveDuration());
-		newConfig.setConnectionPoolTimeUnit(originalConfig.getConnectionPoolTimeUnit());
-		newConfig.setExpireMillis(originalConfig.getExpireMillis());
-		newConfig.setRequestTimeOut(originalConfig.getRequestTimeOut());
-		newConfig.setConnectTimeout(originalConfig.getConnectTimeout());
-		newConfig.setReadTimeout(originalConfig.getReadTimeout());
-		newConfig.setWriteTimeout(originalConfig.getWriteTimeout());
-		newConfig.setTimeOutTimeUnit(originalConfig.getTimeOutTimeUnit());
-		return newConfig;
+		super(config, config.getBaseUrl() != null ? config.getBaseUrl() : ZHIPU_AI_BASE_URL);
 	}
 
 	/**
