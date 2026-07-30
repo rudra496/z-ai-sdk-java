@@ -6,7 +6,9 @@ public enum ResponseFormatType {
 
 	TEXT,
 
-	JSON_OBJECT,;
+	JSON_OBJECT,
+
+	JSON_SCHEMA,;
 
 	@JsonValue
 	public String value() {

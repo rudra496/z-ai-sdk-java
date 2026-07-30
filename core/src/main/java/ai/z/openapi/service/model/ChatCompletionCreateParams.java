@@ -72,9 +72,10 @@ public class ChatCompletionCreateParams extends CommonRequest implements ClientR
 	private List<String> stop;
 
 	/**
-	 * Specifies the response format of the model. Defaults to text. Supports two
-	 * formats:"text" "json_object". When using JSON mode, it’s recommended to clearly
-	 * request JSON output in the prompt.
+	 * Specifies the response format of the model. Defaults to text. Allowed values:
+	 * "text", "json_object", "json_schema". When type is "json_schema", the nested
+	 * {@link ResponseJsonSchema} must be provided to constrain the output. When using
+	 * JSON mode, it’s recommended to clearly request JSON output in the prompt.
 	 */
 	@JsonProperty("response_format")
 	private ResponseFormat responseFormat;

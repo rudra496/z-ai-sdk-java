@@ -18,7 +18,7 @@ public class ChatCompletionStreamExample {
 
 		// Create chat request
 		ChatCompletionCreateParams streamRequest = ChatCompletionCreateParams.builder()
-			.model("glm-5.1")
+			.model("glm-5.3")
 			.messages(Arrays
 				.asList(ChatMessage.builder().role(ChatMessageRole.USER.value()).content("Tell me a story").build()))
 			.thinking(ChatThinking.builder().type("enabled").build())
