@@ -30,7 +30,7 @@ public class ChatCompletionJsonSchemaExample {
 		JsonNode schema = mapper.valueToTree(Collections.singletonMap("type", "object"));
 
 		ChatCompletionCreateParams request = ChatCompletionCreateParams.builder()
-			.model("glm-5.2")
+			.model("glm-5.3")
 			.messages(Collections.singletonList(ChatMessage.builder()
 				.role(ChatMessageRole.USER.value())
 				.content("用 JSON 描述北京当前的天气，包含城市(city)、温度(temperature)和天气状况(condition)")
