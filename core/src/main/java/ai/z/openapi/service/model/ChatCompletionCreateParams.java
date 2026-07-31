@@ -72,6 +72,22 @@ public class ChatCompletionCreateParams extends CommonRequest implements ClientR
 	private List<String> stop;
 
 	/**
+	 * Number between -2.0 and 2.0. Positive values penalize new tokens based on their
+	 * existing frequency in the text so far, decreasing the model's likelihood to repeat
+	 * the same line verbatim. Range: [-2.0, 2.0]
+	 */
+	@JsonProperty("frequency_penalty")
+	private Float frequencyPenalty;
+
+	/**
+	 * Number between -2.0 and 2.0. Positive values penalize new tokens based on whether
+	 * they appear in the text so far, increasing the model's likelihood to talk about new
+	 * topics. Range: [-2.0, 2.0]
+	 */
+	@JsonProperty("presence_penalty")
+	private Float presencePenalty;
+
+	/**
 	 * Specifies the response format of the model. Defaults to text. Supports two
 	 * formats:"text" "json_object". When using JSON mode, it’s recommended to clearly
 	 * request JSON output in the prompt.

@@ -296,7 +296,7 @@ public class AIController {
         ChatCompletionResponse response = zaiClient.chat().createChatCompletion(params);
         
         if (response.isSuccess()) {
-            String content = response.getData().getChoices().get(0).getMessage().getContent();
+            String content = response.getData().getChoices().get(0).getMessage().getContent().toString();
             return ResponseEntity.ok(content);
         } else {
             return ResponseEntity.badRequest().body(response.getMsg());
